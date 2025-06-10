@@ -203,6 +203,11 @@ ul{
 <script type="text/javascript">
   $(document).ready(mySlider);
 
+  $('.portfolio-modal').on('shown.bs.modal', function() {
+      console.log('Modal is opened! ID: ' + $(this).attr('id'));
+      // Add your custom logic here
+    });
+    
 function mySlider() {
     var imgNumber,
         sliderContainerWidth,
