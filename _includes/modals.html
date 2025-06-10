@@ -202,7 +202,15 @@ ul{
 
 <script type="text/javascript">
   // $(document).ready(mySlider);
-
+  var imgNumber,
+      sliderContainerWidth = 100%,
+      imgContainer,
+      index,
+      flag = true,
+      speed = 600,
+      bullets = true,
+      auto = true ,
+      time = 5000 ;
 
   $(".portfolio-link").click(function(){
     alert("clicked");
@@ -210,15 +218,15 @@ ul{
   });
 
 function mySlider() {
-    var imgNumber,
-        sliderContainerWidth,
-        imgContainer,
-        index,
-        flag = true,
-        speed = 600,
-        bullets = true,
-        auto = true ,
-        time = 5000 ;
+    // var imgNumber,
+    //     sliderContainerWidth,
+    //     imgContainer,
+    //     index,
+    //     flag = true,
+    //     speed = 600,
+    //     bullets = true,
+    //     auto = true ,
+    //     time = 5000 ;
 
     construction();
     $(window).resize(construction);
