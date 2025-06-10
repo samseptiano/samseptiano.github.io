@@ -3,6 +3,11 @@ layout: default
 modal-id: 1
 date: 2014-07-18
 img: cabin.png
+img1: cabin.png
+img2: cake.png
+img3: circus.png
+img4: game.png
+img4: safe.png
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
