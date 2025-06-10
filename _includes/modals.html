@@ -220,11 +220,17 @@ function mySlider() {
     function construction() {
         index = 1;
         imgNumber = $('.images-container li').length;
+        console.log("imgNumber: "+imgNumber);
         sliderContainerWidth = Math.round($('#slider-container').width());
         imgContainer = sliderContainerWidth * imgNumber;
         $('.images-container').css("width", imgContainer);
         $('.images-container li').css("width", sliderContainerWidth);
         $('.images-container').css("margin-left", 0);
+
+        console.log("imgNumber: "+imgNumber);
+        console.log("imgContainer: "+imgContainer);
+        console.log("sliderContainerWidth: "+sliderContainerWidth);
+
         if (bullets == true) {
             $('.bullets-container').html("");
             for (i = 1; i <= imgNumber; i++) {
