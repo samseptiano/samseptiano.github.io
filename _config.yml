@@ -39,14 +39,12 @@ footer:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: twitter
-    url: https://twitter.com/samseptiano
   - title: linkedin
     url: https://linkedin.com/in/samseptiano
   - title: github
     url: https://github.com/samseptiano
-  - title: dev.to
-    url: https://dev.to/samseptiano
+  - title: instagram
+    url: https://instagram.com/techarmony
 
 
 # Postal address (add as many lines as necessary)
