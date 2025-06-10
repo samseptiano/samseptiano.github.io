@@ -15,7 +15,30 @@
           <div class="modal-body">
             <h2>{{ post.title }}</h2>
             <hr class="star-primary">
-            <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            <section class="hearo-area">
+          		<!-- slider-area -->
+          		<div class="slider-wrapper">
+          			<div class="active-slider owl-carousel">
+          				<div class="slider-items bg-img-1">
+          					<div class="sigle-item">
+          						<h1>slider 1</h1>
+          					</div>
+          				</div>
+          				<div class="slider-items bg-img-2">
+          					<div class="sigle-item">
+          						<h1>slider 2</h1>
+          					</div>
+          				</div>
+          				<div class="slider-items bg-img-3">
+          					<div class="sigle-item">
+          						<h1>slider 3</h1>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          		<!-- slider-area-ends -->
+          	</section>
+            <!-- <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}"> -->
             {% if post.description %}
             <p>{{ post.description }}</p>
             {% endif %}
@@ -44,4 +67,23 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+  (function($){
+	'use strict';
+	$(document).ready(function(){
+		$('.active-slider').owlCarousel({
+			items: 1,
+			loop: true,
+			nav: true,
+      //animation
+      animateOut: 'fadeOut',
+      autoplay: true,
+  //icon for nav
+			navText: ['<h1> < </h1>', '<h1> > </h1>']
+		});
+	});
+})(jQuery);
+</script>
 {% endfor %}
