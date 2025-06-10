@@ -9,7 +9,7 @@ img3: circus.png
 img4: game.png
 img5: safe.png
 alt: image-alt
-project-date: April 2014
+project-date: August 2020
 client: PT. Citra Maju Sentosa
 category: Web Development
 description: Warehouse Management System for PT.Citra Maju Sentosa.
