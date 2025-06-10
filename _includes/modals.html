@@ -1,112 +1,228 @@
 <!-- Portfolio Modals -->
 {% for post in site.posts %}
 <style media="screen">
-  /*common-css*/
-* {
-    padding: 0;
-    margin: 0;
-}
-h1 {
-    margin-bottom: 20px;
-    text-align: center;
+  *{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
 }
 
-/*slider-bg-setup*/
-.slider-items {
-    position: relative;
-/*   slider-height */
-    height: 100vh;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-    background-position: 0 0;
-    background-repeat: no-repeat;
+h2{
+  text-align:center;
+  padding:50px 0;
+  font-family: 'Abel', sans-serif;
+  font-size:45px;
+  @media(max-width:680px){
+    font-size:30px;
+  }
 }
-/* you can use background imgae in internal css */
-.bg-img-1 {
-  background-image: url(img/portfolio/{{ post.img1 }});
+ul{
+  padding:0;
+  list-style: none;
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+  }
 }
-.bg-img-2 {
-  background-image: url(img/portfolio/{{ post.img2 }});
+#container{
+  width: 100%;
 }
-.bg-img-3 {
-  background-image: url(img/portfolio/{{ post.img3 }});
-}
-.bg-img-4 {
-  background-image: url(img/portfolio/{{ post.img4 }});
-}
-.bg-img-5 {
-  background-image: url(img/portfolio/{{ post.img5 }});
-}
-
-/*slider-style*/
-.active-slider {
-    position: relative;
-}
-.sigle-item {
-    position: absolute;
-    color: #fff;
-    text-align: center;
-    width: 100%;
-    top: 50%;
-    text-transform: uppercase;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-}
-/*over-lay-for-slider*/
-.slider-items:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-/* overlay-color */
-    background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#000));
-    background: -webkit-linear-gradient(#777, #000);
-    background: -o-linear-gradient(#777, #000);
-    background: linear-gradient(#777, #000);
-    opacity: .65
-}
-/*slider-reade-more-button*/
-a.home-btn {;
-  border: 2px solid #fff;
-  display: inline-block;
-  padding: 10px 25px;
-  margin-top: 30px;
-  color: #fff;
-  text-decoration: none;
-  transition: linear .3s;
-}
-a.home-btn:hover, .owl-nav div:hover {
-    background-color: #000;
-}
-/*owl-nav*/
-.owl-nav div {
-    border: 2px solid #fff;
-    color: #fff;
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    z-index: 9;
-    top: 50%;
-    margin-top: -20px;
-    left: 10px;
-    line-height: 40px;
-    text-align: center;
-    -webkit-transition: linear .3s;
-    -o-transition: linear .3s;
-    transition: linear .3s;
-}
-.owl-nav div.owl-next {
-    left: auto;
-    right: 10px;
-}
-/* optional */
-.owl-nav h1 {
-    font-weight: 900;
+#slider-container{
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  ul{
+    li{
+      float:left;
+      img{
+        width:100%;
+        float:left;
+      }
+    }
+  }
+  .arrow{
+    display:block;
+    position:absolute;
+    top:50%;
+    width:50px;
+    height:50px;
+    transform:translateY(-50%) scale(1);
+    cursor:pointer;
+    &:before,
+    &:after{
+      content:"";
+      display:block;
+      width:34px;
+      height:1px;
+      position:absolute;
+      background:white;
+      border-top:1px solid grey;
+    }
+    @media(max-width:680px){
+      transform:translateY(-50%) scale(0.5);
+    }
+  }
+  .arrow.a-left{
+    left:15px;
+    &:before{
+      top:0;
+      left:0;
+      margin-top:0;
+      transform:rotate(-45deg);
+      transform-origin: 100% 0;
+    }
+    &:after{
+      bottom:0;
+      left:0;
+      margin-bottom:0;
+      transform:rotate(45deg);
+      transform-origin: 100% 0;
+    }
+  }
+  .arrow.a-right{
+    right:15px;
+     &:before{
+      top:0;
+      right:0;
+      margin-top:0;
+      transform:rotate(45deg);
+      transform-origin: 0 0;
+    }
+    &:after{
+      bottom:0;
+      right:0;
+      margin-bottom:0;
+      transform:rotate(-45deg);
+      transform-origin: 0 0;
+    }
+  }
+  .bullets-container{
+    position:absolute;
+    bottom:5%;
+    left:50%;
+    transform: translateX(-50%);
+    .bullet{
+      width:15px;
+      height:15px;
+      display:inline-block;
+      border-radius:50%;
+      border:1px solid grey;
+      cursor:pointer;
+      margin:0 8px;
+      &.active{
+        background:grey;
+      }
+    }
+  }
 }
 </style>
+<script type="text/javascript">
+  $(document).ready(mySlider);
+
+function mySlider() {
+    var imgNumber,
+        sliderContainerWidth,
+        imgContainer,
+        index,
+        flag = true,
+        speed = 600,
+        bullets = true,
+        auto = true ,
+        time = 5000 ;
+
+    construction();
+    $(window).resize(construction);
+    if(auto){
+     var handle = setInterval(slideRight, time) ;
+    }
+
+    function construction() {
+        index = 1;
+        imgNumber = $('.images-container li').length;
+        sliderContainerWidth = Math.round($('#slider-container').width());
+        imgContainer = sliderContainerWidth * imgNumber;
+        $('.images-container').css("width", imgContainer);
+        $('.images-container li').css("width", sliderContainerWidth);
+        $('.images-container').css("margin-left", 0);
+        if (bullets == true) {
+            $('.bullets-container').html("");
+            for (i = 1; i <= imgNumber; i++) {
+                $('.bullets-container').append("<span class='bullet'></span>");
+            }
+            $('.bullet').eq(0).addClass('active');
+        }
+        $(".bullet").click(pagers);
+        $('.a-right').click(slideRight);
+        $('.a-left').click(slideLeft);
+    }
+
+    function pagers() {
+        if (!$(this).hasClass('active')) {
+            var bulletIndex = $(".bullets-container span").index(this) + 1;
+            index = bulletIndex;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(bulletIndex - 1).addClass("active");
+            $('.images-container').animate({
+                marginLeft: -sliderContainerWidth * (bulletIndex - 1)
+            }, speed);
+        }
+    }
+
+    function slideRight() {
+        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
+        if (flag) {
+            if (imgContainerLeft == -sliderContainerWidth * (imgNumber - 1)) {
+                index = 1;
+                $('.images-container').animate({
+                    marginLeft: 0
+                }, speed, function() {
+                    flag = true;
+                })
+            } else {
+                index++;
+                $('.images-container').animate({
+                    marginLeft: '-=' + sliderContainerWidth
+                }, speed, function() {
+                    flag = true;
+                })
+            }
+            flag = false;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+        }
+    }
+
+    function slideLeft() {
+        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
+        clearInterval(slideRight, 3000);
+        if (flag) {
+            if (imgContainerLeft == 0 ) {
+                index = index + (imgNumber - 1);
+                $('.images-container').animate({
+                    marginLeft: -sliderContainerWidth * (imgNumber - 1) + 'px'
+                }, speed, function() {
+                    flag = true;
+                })
+            } else {
+                index--;
+                $('.images-container').animate({
+                    marginLeft: '+=' + sliderContainerWidth
+                }, speed, function() {
+                    flag = true;
+                })
+            }
+            flag = false;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+        }
+
+    }
+    $("#slider-container .arrow , .bullets-container").hover(function(){
+      clearInterval(handle);
+    },function(){
+      handle = setInterval(slideRight, time) ;
+    })
+
+};
+</script>
 <div class="portfolio-modal modal fade" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-content">
@@ -122,40 +238,31 @@ a.home-btn:hover, .owl-nav div:hover {
           <div class="modal-body">
             <h2>{{ post.title }}</h2>
             <hr class="star-primary">
-            <section class="hearo-area">
-          		<!-- slider-area -->
-          		<div class="slider-wrapper">
-          			<div class="active-slider owl-carousel">
-          				<div class="slider-items bg-img-1">
-          					<div class="sigle-item">
-          						<h2>slider 1</h2>
-          					</div>
-          				</div>
-          				<div class="slider-items bg-img-2">
-          					<div class="sigle-item">
-          						<h2>slider 2</h2>
-          					</div>
-          				</div>
-          				<div class="slider-items bg-img-3">
-          					<div class="sigle-item">
-          						<h2>slider 3</h2>
-          					</div>
-          				</div>
-                  <div class="slider-items bg-img-4">
-          					<div class="sigle-item">
-          						<h2>slider 4</h2>
-          					</div>
-          				</div>
-                  <div class="slider-items bg-img-5">
-          					<div class="sigle-item">
-          						<h2>slider 5</h2>
-          					</div>
-          				</div>
-          			</div>
-          		</div>
-          		<!-- slider-area-ends -->
-          	</section>
             <!-- <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}"> -->
+            <section id="container">
+              <div id="slider-container">
+                <ul class="images-container">
+                  <li>
+                   <img src="img/portfolio/{{ post.img1 }}">
+                  </li>
+                  <li>
+                    <img src="img/portfolio/{{ post.img2 }}">
+                  </li>
+                  <li>
+                    <img src="img/portfolio/{{ post.img3 }}">
+                  </li>
+                  <li>
+                    <img src="img/portfolio/{{ post.img4 }}">
+                  </li>
+                  <li>
+                    <img src="img/portfolio/{{ post.img5 }}">
+                  </li>
+                </ul>
+                <span class="arrow a-left"></span>
+                <span class="arrow a-right"></span>
+                <div class='bullets-container'></div>
+              </div>
+            </section>
             {% if post.description %}
             <p>{{ post.description }}</p>
             {% endif %}
@@ -184,23 +291,4 @@ a.home-btn:hover, .owl-nav div:hover {
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
-<script type="text/javascript">
-  (function($){
-	'use strict';
-	$(document).ready(function(){
-		$('.active-slider').owlCarousel({
-			items: 1,
-			loop: true,
-			nav: true,
-      //animation
-      animateOut: 'fadeOut',
-      autoplay: true,
-  //icon for nav
-			navText: ['<h1> < </h1>', '<h1> > </h1>']
-		});
-	});
-})(jQuery);
-</script>
 {% endfor %}
