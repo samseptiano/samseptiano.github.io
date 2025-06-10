@@ -134,7 +134,7 @@ ul{
             <hr class="star-primary">
             <!-- <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}"> -->
             <section id="container">
-              <div id="slider-container" id="slider-container-{{ post.modal-id }}" >
+              <div id="slider-container">
                 <ul class="images-container">
                   {% if post.img1 %}
                   <li>
@@ -201,131 +201,113 @@ ul{
 {% endfor %}
 
 <script type="text/javascript">
-$(document).ready(function() {
-  // Initialize slider for each modal when shown
-  $('.portfolio-modal').on('shown.bs.modal', function(e) {
-    var modalId = $(this).attr('id').replace('portfolioModal-', '');
-    mySlider(modalId);
-  });
+  $(document).ready(mySlider);
 
-  // Clean up when modal is hidden
-  $('.portfolio-modal').on('hidden.bs.modal', function(e) {
-    var modalId = $(this).attr('id').replace('portfolioModal-', '');
-    clearInterval(window['handle_' + modalId]); // Clear auto-slide interval
-    $('#slider-container-' + modalId + ' .images-container').stop(); // Stop animations
-  });
-});
+function mySlider() {
+    var imgNumber,
+        sliderContainerWidth,
+        imgContainer,
+        index,
+        flag = true,
+        speed = 600,
+        bullets = true,
+        auto = true ,
+        time = 5000 ;
 
-function mySlider(modalId) {
-  var imgNumber,
-      sliderContainerWidth,
-      imgContainer,
-      index,
-      flag = true,
-      speed = 600,
-      bullets = true,
-      auto = true,
-      time = 5000,
-      $sliderContainer = $('#slider-container-' + modalId),
-      $imgContainer = $sliderContainer.find('.images-container'),
-      $bulletsContainer = $sliderContainer.find('.bullets-container');
-
-  construction();
-
-  $(window).resize(construction);
-  if (auto) {
-    window['handle_' + modalId] = setInterval(slideRight, time);
-  }
-
-  function construction() {
-    index = 1;
-    imgNumber = $imgContainer.find('li').length; // Dynamic based on rendered images
-    sliderContainerWidth = Math.round($sliderContainer.width());
-    imgContainer = sliderContainerWidth * imgNumber;
-
-    console.log("Modal ID: " + modalId);
-    console.log("imgNumber: " + imgNumber);
-    console.log("imgContainer: " + imgContainer);
-    console.log("sliderContainerWidth: " + sliderContainerWidth);
-
-    $imgContainer.css("width", imgContainer);
-    $imgContainer.find('li').css("width", sliderContainerWidth);
-    $imgContainer.css("margin-left", 0);
-
-    if (bullets && imgNumber > 0) {
-      $bulletsContainer.html("");
-      for (i = 1; i <= imgNumber; i++) {
-        $bulletsContainer.append("<span class='bullet'></span>");
-      }
-      $bulletsContainer.find('.bullet').eq(0).addClass('active');
+    construction();
+    $(window).resize(construction);
+    if(auto){
+     var handle = setInterval(slideRight, time) ;
     }
-    $bulletsContainer.find(".bullet").click(pagers);
-    $sliderContainer.find('.a-right').click(slideRight);
-    $sliderContainer.find('.a-left').click(slideLeft);
-  }
 
-  function pagers() {
-    if (!$(this).hasClass('active')) {
-      var bulletIndex = $bulletsContainer.find(".bullet").index(this) + 1;
-      index = bulletIndex;
-      $bulletsContainer.find(".bullet").removeClass("active").eq(bulletIndex - 1).addClass("active");
-      $imgContainer.animate({
-        marginLeft: -sliderContainerWidth * (bulletIndex - 1)
-      }, speed);
-    }
-  }
-
-  function slideRight() {
-    var imgContainerLeft = parseInt($imgContainer.css('margin-left'));
-    if (flag) {
-      if (imgContainerLeft == -sliderContainerWidth * (imgNumber - 1)) {
+    function construction() {
         index = 1;
-        $imgContainer.animate({
-          marginLeft: 0
-        }, speed, function() {
-          flag = true;
-        });
-      } else {
-        index++;
-        $imgContainer.animate({
-          marginLeft: '-=' + sliderContainerWidth
-        }, speed, function() {
-          flag = true;
-        });
-      }
-      flag = false;
-      $bulletsContainer.find(".bullet").removeClass("active").eq(index - 1).addClass("active");
-    }
-  }
+        imgNumber = $('.images-container li').length;
+        sliderContainerWidth = Math.round($('#slider-container').width());
+        imgContainer = sliderContainerWidth * imgNumber;
+        $('.images-container').css("width", imgContainer);
+        $('.images-container li').css("width", sliderContainerWidth);
+        $('.images-container').css("margin-left", 0);
 
-  function slideLeft() {
-    var imgContainerLeft = parseInt($imgContainer.css('margin-left'));
-    clearInterval(window['handle_' + modalId]);
-    if (flag) {
-      if (imgContainerLeft == 0) {
-        index = index + (imgNumber - 1);
-        $imgContainer.animate({
-          marginLeft: -sliderContainerWidth * (imgNumber - 1) + 'px'
-        }, speed, function() {
-          flag = true;
-        });
-      } else {
-        index--;
-        $imgContainer.animate({
-          marginLeft: '+=' + sliderContainerWidth
-        }, speed, function() {
-          flag = true;
-        });
-      }
-      flag = false;
-      $bulletsContainer.find(".bullet").removeClass("active").eq(index - 1).addClass("active");
-    }
-  }
+        console.log("imgNumber: "+imgNumber);
+        console.log("imgContainer: "+imgContainer);
+        console.log("sliderContainerWidth: "+sliderContainerWidth);
 
-  $sliderContainer.find(".arrow, .bullets-container").hover(function(){
-    clearInterval(window['handle_' + modalId]);
-  }, function(){
-    window['handle_' + modalId] = setInterval(slideRight, time);
-  });
-}
+        if (bullets == true) {
+            $('.bullets-container').html("");
+            for (i = 1; i <= imgNumber; i++) {
+                $('.bullets-container').append("<span class='bullet'></span>");
+            }
+            $('.bullet').eq(0).addClass('active');
+        }
+        $(".bullet").click(pagers);
+        $('.a-right').click(slideRight);
+        $('.a-left').click(slideLeft);
+    }
+
+    function pagers() {
+        if (!$(this).hasClass('active')) {
+            var bulletIndex = $(".bullets-container span").index(this) + 1;
+            index = bulletIndex;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(bulletIndex - 1).addClass("active");
+            $('.images-container').animate({
+                marginLeft: -sliderContainerWidth * (bulletIndex - 1)
+            }, speed);
+        }
+    }
+
+    function slideRight() {
+        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
+        if (flag) {
+            if (imgContainerLeft == -sliderContainerWidth * (imgNumber - 1)) {
+                index = 1;
+                $('.images-container').animate({
+                    marginLeft: 0
+                }, speed, function() {
+                    flag = true;
+                })
+            } else {
+                index++;
+                $('.images-container').animate({
+                    marginLeft: '-=' + sliderContainerWidth
+                }, speed, function() {
+                    flag = true;
+                })
+            }
+            flag = false;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+        }
+    }
+
+    function slideLeft() {
+        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
+        clearInterval(slideRight, 3000);
+        if (flag) {
+            if (imgContainerLeft == 0 ) {
+                index = index + (imgNumber - 1);
+                $('.images-container').animate({
+                    marginLeft: -sliderContainerWidth * (imgNumber - 1) + 'px'
+                }, speed, function() {
+                    flag = true;
+                })
+            } else {
+                index--;
+                $('.images-container').animate({
+                    marginLeft: '+=' + sliderContainerWidth
+                }, speed, function() {
+                    flag = true;
+                })
+            }
+            flag = false;
+            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+        }
+
+    }
+    $("#slider-container .arrow , .bullets-container").hover(function(){
+      clearInterval(handle);
+    },function(){
+      handle = setInterval(slideRight, time) ;
+    })
+
+};
 </script>
