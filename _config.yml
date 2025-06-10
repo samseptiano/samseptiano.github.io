@@ -1,7 +1,7 @@
 # Site settings
 title: Software Craftmanship
 email: sammuel.septiano@gmail.com
-url: https://github.com/jeromelachaud/freelancer-theme
+url: https://github.com/samseptiano
 description: "Graduated from Computer Science major with some professional experiences in the field of Software Engineering especially in Web and Mobile Development at startup and enterprise level company with various industries like Financial Technology, HRIS, POS, Logistic, Sales, Healthcare, etc. since 2017. Experienced in Web and Mobile Development using Kotlin, JAVA, Flutter, .NET/.NET Core, and PHP."
 keywords: "software-development,mobile-development,project-management"
 skills: "Software Engineering - Project Management"
@@ -45,7 +45,7 @@ social:
     url: https://github.com/samseptiano
   - title: instagram
     url: https://instagram.com/techarmony
-  - title: email
+  - title: gmail
     url: mailto:sammuel.septiano@gmail.com?subject=Business%20Inqiries&body=Hello%20Samuel%20Septiano
 
 # Postal address (add as many lines as necessary)
