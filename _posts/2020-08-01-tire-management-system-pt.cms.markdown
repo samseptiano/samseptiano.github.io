@@ -7,6 +7,7 @@ img1: cms-tms-1.png
 img2: cms-tms-2.png
 img3: cms-tms-3.png
 img4: cms-tms-4.png
+img5: cms-tms-5.png
 alt: image-alt
 project-date: August 2020
 client: PT. Citra Maju Sentosa
