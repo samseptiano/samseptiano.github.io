@@ -197,119 +197,111 @@ ul{
   // $(document).ready(mySlider);
 
 
-  $(".portfolio-link").click(function(){
-    setTimeout(
-    function()
-    {
-       mySlider()
+  $(".portfolio-link").click(function () {
+    const modalId = $(this).attr("href"); // e.g. #portfolioModal-1
+    setTimeout(function () {
+      const $modal = $(modalId);
+      mySlider($modal);
     }, 500);
   });
 
-function mySlider() {
-    var imgNumber,
+  function mySlider($modal) {
+    let imgNumber,
         sliderContainerWidth,
         imgContainer,
-        index,
+        index = 1,
         flag = true,
         speed = 600,
         bullets = true,
-        auto = true ,
-        time = 5000 ;
+        auto = true,
+        time = 5000;
 
-    construction();
-    $(window).resize(construction);
-    if(auto){
-     var handle = setInterval(slideRight, time) ;
-    }
+    const $sliderContainer = $modal.find("#slider-container");
+    const $imagesContainer = $sliderContainer.find(".images-container");
+    const $leftArrow = $sliderContainer.find(".a-left");
+    const $rightArrow = $sliderContainer.find(".a-right");
+    const $bulletsContainer = $sliderContainer.find(".bullets-container");
 
     function construction() {
-        index = 1;
-        imgNumber = $('.images-container li').length;
-        sliderContainerWidth = Math.round($('#slider-container').width());
-        imgContainer = sliderContainerWidth * imgNumber;
-        $('.images-container').css("width", imgContainer);
-        $('.images-container li').css("width", sliderContainerWidth);
-        $('.images-container').css("margin-left", 0);
+      imgNumber = $imagesContainer.find("li").length;
+      sliderContainerWidth = Math.round($sliderContainer.width());
+      imgContainer = sliderContainerWidth * imgNumber;
 
-        console.log("imgNumber: "+imgNumber);
-        console.log("imgContainer: "+imgContainer);
-        console.log("sliderContainerWidth: "+sliderContainerWidth);
+      $imagesContainer.css({
+        width: imgContainer,
+        "margin-left": 0
+      });
+      $imagesContainer.find("li").css("width", sliderContainerWidth);
 
-        if (bullets == true) {
-            $('.bullets-container').html("");
-            for (i = 1; i <= imgNumber; i++) {
-                $('.bullets-container').append("<span class='bullet'></span>");
-            }
-            $('.bullet').eq(0).addClass('active');
+      if (bullets) {
+        $bulletsContainer.html("");
+        for (let i = 1; i <= imgNumber; i++) {
+          $bulletsContainer.append("<span class='bullet'></span>");
         }
-        $(".bullet").click(pagers);
-        $('.a-right').click(slideRight);
-        $('.a-left').click(slideLeft);
+        $bulletsContainer.find(".bullet").eq(0).addClass("active");
+      }
+
+      $bulletsContainer.find(".bullet").click(pagers);
+      $rightArrow.click(slideRight);
+      $leftArrow.click(slideLeft);
     }
 
     function pagers() {
-        if (!$(this).hasClass('active')) {
-            var bulletIndex = $(".bullets-container span").index(this) + 1;
-            index = bulletIndex;
-            $(".bullets-container").find(".bullet").removeClass("active").eq(bulletIndex - 1).addClass("active");
-            $('.images-container').animate({
-                marginLeft: -sliderContainerWidth * (bulletIndex - 1)
-            }, speed);
-        }
+      if (!$(this).hasClass("active")) {
+        const bulletIndex = $bulletsContainer.find(".bullet").index(this) + 1;
+        index = bulletIndex;
+        $bulletsContainer.find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+        $imagesContainer.animate({
+          marginLeft: -sliderContainerWidth * (index - 1)
+        }, speed);
+      }
     }
 
     function slideRight() {
-        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
-        if (flag) {
-            if (imgContainerLeft == -sliderContainerWidth * (imgNumber - 1)) {
-                index = 1;
-                $('.images-container').animate({
-                    marginLeft: 0
-                }, speed, function() {
-                    flag = true;
-                })
-            } else {
-                index++;
-                $('.images-container').animate({
-                    marginLeft: '-=' + sliderContainerWidth
-                }, speed, function() {
-                    flag = true;
-                })
-            }
-            flag = false;
-            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+      const imgContainerLeft = parseInt($imagesContainer.css("margin-left"));
+      if (flag) {
+        if (imgContainerLeft === -sliderContainerWidth * (imgNumber - 1)) {
+          index = 1;
+          $imagesContainer.animate({ marginLeft: 0 }, speed, () => (flag = true));
+        } else {
+          index++;
+          $imagesContainer.animate({ marginLeft: `-=${sliderContainerWidth}` }, speed, () => (flag = true));
         }
+        flag = false;
+        $bulletsContainer.find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+      }
     }
 
     function slideLeft() {
-        var imgContainerLeft = parseInt($('.images-container').css('margin-left'));
-        clearInterval(slideRight, 3000);
-        if (flag) {
-            if (imgContainerLeft == 0 ) {
-                index = index + (imgNumber - 1);
-                $('.images-container').animate({
-                    marginLeft: -sliderContainerWidth * (imgNumber - 1) + 'px'
-                }, speed, function() {
-                    flag = true;
-                })
-            } else {
-                index--;
-                $('.images-container').animate({
-                    marginLeft: '+=' + sliderContainerWidth
-                }, speed, function() {
-                    flag = true;
-                })
-            }
-            flag = false;
-            $(".bullets-container").find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+      const imgContainerLeft = parseInt($imagesContainer.css("margin-left"));
+      if (flag) {
+        if (imgContainerLeft === 0) {
+          index = imgNumber;
+          $imagesContainer.animate({
+            marginLeft: -sliderContainerWidth * (imgNumber - 1)
+          }, speed, () => (flag = true));
+        } else {
+          index--;
+          $imagesContainer.animate({
+            marginLeft: `+=${sliderContainerWidth}`
+          }, speed, () => (flag = true));
         }
-
+        flag = false;
+        $bulletsContainer.find(".bullet").removeClass("active").eq(index - 1).addClass("active");
+      }
     }
-    $("#slider-container .arrow , .bullets-container").hover(function(){
-      clearInterval(handle);
-    },function(){
-      handle = setInterval(slideRight, time) ;
-    })
 
-};
+    if (auto) {
+      var handle = setInterval(slideRight, time);
+
+      $sliderContainer.find(".arrow, .bullets-container").hover(
+        () => clearInterval(handle),
+        () => (handle = setInterval(slideRight, time))
+      );
+    }
+
+    construction();
+    $(window).on("resize", construction);
+  }
+
 </script>
