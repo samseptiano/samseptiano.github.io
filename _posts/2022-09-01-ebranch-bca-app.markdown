@@ -3,7 +3,7 @@ layout: default
 modal-id: ebca-app
 date: 2022-09-01
 img: ebca-logo.png
-img1: ebca-app-1.jpg
+img1: ebca-app-1.png
 alt: image-alt
 project-date: September 2022 - April 2023
 client: Sama-Sama App
