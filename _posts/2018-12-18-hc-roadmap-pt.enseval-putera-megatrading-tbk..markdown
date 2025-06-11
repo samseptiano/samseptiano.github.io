@@ -2,8 +2,8 @@
 layout: default
 modal-id: epm-app
 date: 2018-12-01
-img: epm-logo.jpg
-img1: epm-app-1.png
+img: epm-logo.png
+img1: epm-app-1.jpg
 alt: image-alt
 project-date: December 2018 - October 2020
 client: PT. Enseval Putera Megatrading Tbk.
