@@ -2,7 +2,7 @@
 layout: default
 modal-id: cms-wms
 date: 2020-07-18
-img: cms-logo.png
+img: cms-logo.jpg
 img1: cms-wms-1.png
 img2: cms-wms-2.png
 img3: cms-wms-3.png
