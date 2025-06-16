@@ -9,4 +9,5 @@ project-date: September 2024 - December 2024
 client: Sama-Sama App
 category: Web and App Development
 description: Collaborating with teams to build Fullstack web and mobile app using Spring Boot for BE APis from scratch.
+stack: java, spring boot, MVC, android, kotlin, MVVM, jetpack
 ---

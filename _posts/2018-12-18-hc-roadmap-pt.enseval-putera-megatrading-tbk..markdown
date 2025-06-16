@@ -9,4 +9,6 @@ project-date: December 2018 - October 2020
 client: PT. Enseval Putera Megatrading Tbk.
 category: Web and App Development
 description: Working as a fulltime HRIS Fullstack Software Engineer to build HRIS based Android and Web Application (training and HC Roadmap apps) from scratch.
+stack: android, kotlin, java, MVP, .NET, c#, MVC, Jason Web Token
+
 ---

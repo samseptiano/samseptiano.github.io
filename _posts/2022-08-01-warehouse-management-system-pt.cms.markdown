@@ -12,4 +12,5 @@ project-date: August 2022
 client: PT. Citra Maju Sentosa
 category: Web Development
 description: Warehouse Management System for PT.Citra Maju Sentosa.
+stack: php, codeigniter, MVC, mysql
 ---

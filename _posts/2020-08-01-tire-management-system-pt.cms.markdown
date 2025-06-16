@@ -13,4 +13,6 @@ project-date: August 2020
 client: PT. Citra Maju Sentosa
 category: Web Development
 description: Tire Management System for PT.Citra Maju Sentosa.
+stack: php, codeigniter, MVC, mysql
+
 ---
