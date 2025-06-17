@@ -12,4 +12,5 @@ client: Ottodigital (Salim Group)
 category: Android App Development
 description: Collaborating with teams to build Ottodigital mobile apps: Ottopay (an Indonesian fintech service, which provides comprehensive digital payment solutions for MSMEs and businesses (both small stalls to large franchises)), Ottokasir (Transaction & stock recording tools, plus access to wholesale products for MSMEs), and Indomarco App
 stack: Android, Java, MVP, RxJava, Jetpack, RoomDB
+
 ---
