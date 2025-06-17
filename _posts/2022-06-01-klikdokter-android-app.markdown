@@ -10,5 +10,5 @@ client: PT. Medika Komunika Teknologi (Klikdokter)
 category: Android Application Development
 description: Working as a fulltime Android Engineer to build Klikdokter Android Application.  KlikDokter app is a comprehensive health platform designed to empower users in Indonesia to take control of their healthcare anytime, anywhere. It serves as a digital bridge between patients and medical professionals, offering a wide range of features and services that support preventive, curative, and educational health needs.  You can see this app <a href="https://play.google.com/store/apps/details?id=id.codigo.klikdokter&hl=id">here</a>
 stack: Android, Kotlin, Java, MVVM, Modularization, Jetpack, Coroutines
----
+
 ---
