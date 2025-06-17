@@ -10,7 +10,7 @@ alt: image-alt
 project-date: October 2020 - October 2021
 client: Ottodigital (Salim Group)
 category: Android App Development
-description: Collaborating with teams to build Ottodigital mobile app
+description: Collaborating with teams to build Ottodigital mobile apps. Ottopay (an Indonesian fintech service, which provides comprehensive digital payment solutions for MSMEs and businesses (both small stalls to large franchises)), Ottokasir (Transaction & stock recording tools, plus access to wholesale products for MSMEs)
 stack: Android, Java, MVP, RxJava, Jetpack, RoomDB
 
 ---
