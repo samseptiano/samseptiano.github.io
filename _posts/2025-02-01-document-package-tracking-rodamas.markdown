@@ -12,7 +12,7 @@ img5: rdm-dpt-5.png
 alt: image-alt
 project-date: January 2025 - April 2025
 client: Rodamas Group
-category: Android App Development
-description: Working as fulltime software engineer to build fullstack Android App and APIs.
-stack: Laravel, PHP, SQL Server, Kotlin, MVVM, Modularization, Coroutines, Clean Architecture, Jetpack,
+category: Android and Web App Development
+description: Working as fulltime software engineer to build fullstack Android App and APIs from scratch. This app is used by receptionists and securities to track employee's documents and packages that coming into office area. this app can send notifications to employee via email to notify package location as well.
+stack: Laravel, PHP, SQL Server, Kotlin, MVVM, Modularization, Coroutines, Clean Architecture, Jetpack
 ---
