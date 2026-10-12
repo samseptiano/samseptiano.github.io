@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/**)",
+      "Bash(curl -s https://samseptiano.github.io/ -o samseptiano_index.html)",
+      "Bash(curl -sL \"https://avatars.githubusercontent.com/u/18351457?v=4\" -o profile-photo.jpg)",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/7/79/Flutter_logo.svg\" -o flutter-logo.svg)",
+      "Bash(curl -s https://samseptiano.github.io/ -o samseptiano_fresh.html)",
+      "Bash(grep -noE '#[0-9a-fA-F]{3,6}' index.html)"
+    ]
+  }
+}

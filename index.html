@@ -1,3 +1,1491 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Graduated from Computer Science major with some professional experiences in the field of Software Engineering especially in Web and Mobile Development at startup and enterprise level company with various industries like Financial Technology, HRIS, POS, Logistic, Sales, Healthcare, etc. since 2017. Experienced in Web and Mobile Development using Kotlin, JAVA, Flutter, .NET/.NET Core, and PHP.">
+    <meta name="keywords" content="software-development,mobile-development,project-management">
+    <meta name="author" content="Septiano Samuel">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samseptiano.github.io">
+    <meta property="og:title" content="Samuel Septiano - Portfolio">
+    <meta property="og:description" content="Software Engineer with experience across Android, Flutter, .NET and PHP, building enterprise and startup products since 2017.">
+    <meta property="og:image" content="https://samseptiano.github.io/img/profile-photo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://samseptiano.github.io">
+    <meta name="twitter:title" content="Samuel Septiano - Portfolio">
+    <meta name="twitter:description" content="Software Engineer with experience across Android, Flutter, .NET and PHP, building enterprise and startup products since 2017.">
+    <meta name="twitter:image" content="https://samseptiano.github.io/img/profile-photo.jpg">
+
+    <title>Samuel Septiano - Portfolio</title>
+    <link rel="icon" href="img/profile.png">
+    <link rel="canonical" href="https://github.com/samseptiano/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --accent: #BC7764;
+            --accent-dark: #9a6252;
+            --ink: #3a2a20;
+            --ink-soft: #6b5847;
+            --ink-faint: #9c8a76;
+            --line: #BFAC95;
+            --surface: #D9CEC5;
+            --surface-soft: #D9C6B0;
+            --nav-bg-rgb: 217,206,197;
+            --radius: 14px;
+        }
+        html[data-theme="dark"] {
+            --accent: #d08a76;
+            --ink: #ece3d8;
+            --ink-soft: #c9b9a8;
+            --ink-faint: #9c8a76;
+            --line: #4a3b2e;
+            --surface: #241b14;
+            --surface-soft: #2f2318;
+            --nav-bg-rgb: 36,27,20;
+        }
+        html[data-theme="dark"] body { background-color: var(--surface); }
+        html[data-theme="dark"] .mock-phone-screen { color: #333c4a; }
+        html[data-theme="dark"] .mock-phone-screen .mock-phone-status,
+        html[data-theme="dark"] .mock-phone-screen p,
+        html[data-theme="dark"] .mock-phone-row span { color: #6b7280; }
+        html[data-theme="dark"] .mock-phone-row i { background: #eef1f7; }
+        html[data-theme="dark"] .image-modal-close { color: #333c4a; }
+        html[data-theme="dark"] .show-more-btn {
+            background: transparent;
+            border-color: #c9b9a8;
+            color: #c9b9a8;
+        }
+        html[data-theme="dark"] .show-more-btn:hover { border-color: var(--accent); color: var(--accent); }
+        html[data-theme="dark"] .mock-phone { background: #d08a76; }
+        html[data-theme="dark"] .work-tags span,
+        html[data-theme="dark"] .timeline-tags span,
+        html[data-theme="dark"] .hero-tags span,
+        html[data-theme="dark"] .project-tags span { background: #3a2c21; }
+        * { box-sizing: border-box; }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+        body {
+            margin: 0;
+            background-color: var(--surface);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; }
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        @media (max-width: 480px) {
+            .wrap { padding: 0 18px; }
+        }
+
+        /* Nav */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(var(--nav-bg-rgb), var(--nav-bg-opacity, 1));
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+            transition: background .2s ease;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 17px;
+        }
+        .nav-logo {
+            width: 34px;
+            height: 34px;
+            margin-left: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            flex-shrink: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .btn-resume-nav {
+            border: 1px solid var(--line);
+            padding: 9px 18px;
+            margin-right: 10px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .2s ease;
+        }
+        .btn-resume-nav:hover { border-color: var(--accent); color: var(--accent); }
+        .theme-toggle-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all .2s ease;
+            flex-shrink: 0;
+        }
+        .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .theme-toggle-btn .fa-sun { display: none; }
+        html[data-theme="dark"] .theme-toggle-btn .fa-sun { display: inline-block; }
+        html[data-theme="dark"] .theme-toggle-btn .fa-moon { display: none; }
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+        }
+        @media (max-width: 420px) {
+            .nav-brand { font-size: 14px; gap: 8px; }
+            .nav-logo { width: 28px; height: 28px; }
+            .btn-resume-nav { padding: 8px 12px; font-size: 12.5px; }
+        }
+
+        /* Hero */
+        .hero { padding: 64px 0 56px; }
+        @media (max-width: 640px) {
+            .hero { padding: 40px 0 36px; }
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 12.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin: 0 0 18px;
+            letter-spacing: -0.01em;
+        }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+        }
+        @media (max-width: 400px) {
+            .hero h1 { font-size: 1.7rem; }
+        }
+        .typing-cursor {
+            display: inline-block;
+            background: var(--accent);
+            width: 3px;
+            margin-left: 2px;
+            animation: typing-blink 0.8s steps(1) infinite;
+        }
+        @keyframes typing-blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+        .hero p.lead {
+            color: var(--ink-soft);
+            font-size: 1.02rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin: 0 0 26px;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14.5px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 10px 20px -8px rgba(188,119,100,0.55);
+            animation: btn-pulse-zoom 2.2s ease-in-out infinite;
+        }
+        .btn-primary:hover { animation-play-state: paused; transform: translateY(-2px) scale(1.06); box-shadow: 0 14px 24px -8px rgba(188,119,100,0.65); }
+        @keyframes btn-pulse-zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .btn-outline {
+            border: 1px solid var(--line);
+            color: var(--ink);
+        }
+        .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+        .hero-note {
+            color: var(--ink-faint);
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero visual mock */
+        .hero-visual {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+        .visual-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .mock-card {
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+        .mock-code {
+            background: #2a1f18;
+            color: #D9C6B0;
+            font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+            font-size: 11.5px;
+            line-height: 1.7;
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+        .mock-code .kw { color: #BC7764; }
+        .mock-code .fn { color: #D9CEC5; }
+        .mock-code .code-cursor {
+            display: inline-block;
+            color: #D9C6B0;
+            animation: cursor-blink 2s step-end infinite;
+        }
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .mock-phone {
+            display: flex;
+            height: 100%;
+            background: #2a1f18;
+            border-radius: 28px;
+            padding: 10px;
+            box-shadow: 0 24px 40px -18px rgba(42,31,24,0.45);
+        }
+        .mock-phone-screen {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: #fff;
+            border-radius: 20px;
+            padding: 16px 14px;
+        }
+        .mock-phone-status {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--ink-faint);
+            margin-bottom: 10px;
+        }
+        .mock-phone-screen h4 {
+            margin: 0 0 2px;
+            font-size: 13.5px;
+        }
+        .mock-phone-screen p {
+            margin: 0 0 14px;
+            font-size: 11px;
+            color: var(--ink-faint);
+        }
+        .mock-phone-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid transparent;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity .4s ease, transform .4s ease, border-color .4s ease;
+        }
+        .mock-phone-row.row-visible {
+            opacity: 1;
+            transform: translateY(0);
+            border-bottom-color: var(--line);
+        }
+        .mock-phone-row i {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--surface-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--accent);
+        }
+        .mock-phone-row b { display: block; font-size: 12px; }
+        .mock-phone-row span { font-size: 10.5px; color: var(--ink-faint); }
+        .mock-phone-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid var(--line);
+            color: var(--ink-faint);
+            font-size: 9px;
+        }
+        .mock-phone-tabs span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1px;
+            line-height: .7;
+        }
+        .mock-stat .label { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 6px; }
+        .mock-stat .value { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .mock-stat .value small { font-size: 11px; font-weight: 700; color: #16a34a; display: inline-flex; align-items: center; animation: stat-bounce 1s ease-in-out infinite; }
+        @keyframes stat-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        .mock-tech ul { list-style: none; padding: 0; margin: 0; }
+        .mock-tech li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            font-size: 12.5px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity .4s ease, transform .4s ease;
+        }
+        .mock-tech li.row-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mock-tech li i { width: 16px; color: var(--accent); }
+        .mock-tech li i.icon-green { color: #22c55e; }
+        .mock-tech li i.icon-red { color: #ef4444; }
+        .mock-tech li i.icon-blue { color: #0078d4; }
+        .mock-tech li img.tech-logo {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            filter: none;
+        }
+
+        @media (max-width: 920px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-visual { margin-top: 40px; max-width: 480px; }
+        }
+        @media (max-width: 640px) {
+            .hero-visual { grid-template-columns: 1fr; }
+            .mock-phone { height: auto; max-width: 280px; margin: 0 auto; }
+        }
+
+        section { padding: 64px 0; }
+        @media (max-width: 640px) {
+            section { padding: 44px 0; }
+        }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin-bottom: 28px;
+        }
+        .section-head h2 { font-size: 1.7rem; margin: 0; font-weight: 800; }
+        .section-head .view-all { font-size: 14px; font-weight: 600; color: var(--accent); white-space: nowrap; cursor: pointer; }
+        .section-head .view-all:hover { text-decoration: underline; }
+        @media (max-width: 480px) {
+            .section-head h2 { font-size: 1.4rem; }
+        }
+
+        /* Selected work */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .work-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--surface);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .work-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -16px rgba(58,42,32,0.25); }
+
+        /* Selected work cards: image-only with overlayed corner labels */
+        #work .work-card { position: relative; height: 320px; background: var(--surface-soft); }
+        #work .work-thumb { position: absolute; inset: 0; height: 100%; padding: 0; border-radius: 0; }
+        #work .work-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; opacity: 0.8; }
+        #work .work-card::after {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%),
+                linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 30%);
+            pointer-events: none;
+        }
+        #work .work-body {
+            position: absolute; inset: 0; z-index: 1;
+            padding: 16px 18px;
+            pointer-events: none;
+        }
+        #work .work-body .role,
+        #work .work-tags,
+        #work .work-body p { display: none; }
+        #work .work-body h3 {
+            position: absolute; top: 16px; left: 18px; right: 18px;
+            margin: 0; font-size: 1.05rem; color: #fff; text-align: left; line-height: 1.3;
+            display: inline-block; width: fit-content; max-width: calc(100% - 36px);
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            padding: 6px;
+        }
+        #work .work-link {
+            position: absolute; bottom: 16px; right: 18px;
+            color: #fff; pointer-events: auto;
+        }
+        @media (max-width: 920px) {
+            .work-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 620px) {
+            .work-grid { grid-template-columns: 1fr; }
+        }
+        @media (min-width: 621px) {
+            #work .work-thumb img { opacity: 0.8; transition: opacity .25s ease; }
+            #work .work-card:hover .work-thumb img { opacity: 0.6; }
+            #work .work-link {
+                top: 50%; left: 50%; right: auto; bottom: auto;
+                transform: translate(-50%, -50%);
+                background: var(--accent);
+                padding: 10px 20px;
+                border-radius: 6px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .25s ease, visibility .25s ease;
+            }
+            #work .work-card:hover .work-link { opacity: 1; visibility: visible; }
+        }
+
+        /* Experience */
+        .timeline { position: relative; margin-top: 4px; }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 170px 24px 1fr 1fr;
+            gap: 20px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-date { color: var(--ink-faint); font-size: 13px; padding-top: 2px; }
+        .timeline-dot-col { display: flex; justify-content: center; position: relative; }
+        .timeline-dot {
+            width: 9px; height: 9px; border-radius: 50%;
+            background: var(--accent);
+            margin-top: 6px;
+            z-index: 1;
+        }
+        .timeline-dot-col::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: -22px;
+            width: 1px;
+            background: var(--line);
+        }
+        .timeline-item:last-child .timeline-dot-col::before { display: none; }
+        .timeline-company { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .timeline-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .timeline-main h3 { margin: 0 0 2px; font-size: 15.5px; }
+        .timeline-main .role { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 0; }
+        .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .timeline-tags span {
+            background: var(--surface-soft);
+            color: var(--ink-soft);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 999px;
+        }
+        .timeline-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; padding-top: 2px; }
+        @media (max-width: 860px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 18px;
+                margin-bottom: 14px;
+                border: 1px solid var(--line);
+                border-left: 3px solid var(--accent);
+                border-radius: var(--radius);
+            }
+            .timeline-item:last-child { margin-bottom: 0; }
+            .timeline-dot-col { display: none; }
+            .timeline-date {
+                font-weight: 700;
+                color: var(--accent);
+                font-size: 12.5px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+            .timeline-main .role { margin-bottom: 4px; }
+        }
+
+        /* Footer */
+        footer { padding: 30px 0 50px; }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--line);
+            padding-top: 24px;
+            font-size: 13px;
+            color: var(--ink-faint);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-social { display: flex; gap: 18px; }
+        .footer-social a:hover { color: var(--ink); }
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column; gap: 14px; text-align: center; }
+        }
+
+        /* Hero tags + social */
+        .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+        .hero-tags span {
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            color: var(--ink-soft);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+        /* Social bar (below header) */
+        .social-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+        }
+        .social-bar a {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid var(--line);
+            padding: 7px 13px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            transition: all .2s ease;
+        }
+        .social-bar a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+        /* Full projects grid */
+        .full-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 920px) {
+            .full-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 620px) {
+            .full-grid { grid-template-columns: 1fr; }
+        }
+        .work-thumb {
+            background: var(--surface-soft);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .work-thumb::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--thumb-bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.18;
+        }
+        .work-thumb img {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+            cursor: zoom-in;
+        }
+        .work-body { padding: 20px; }
+        .work-body h3 { margin: 0 0 8px; font-size: 1.02rem; color: var(--ink); }
+        .work-body .meta { color: var(--ink-faint); font-size: 12.5px; margin-bottom: 12px; }
+        .work-tags, .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .work-tags span, .project-tags span {
+            background: var(--surface-soft);
+            color: var(--ink-soft);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+        .work-body p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 14px; }
+        .work-link { font-size: 13.5px; font-weight: 700; color: var(--accent); }
+        .work-link:hover { text-decoration: underline; }
+
+        .show-more-wrap { text-align: center; margin-top: 28px; }
+        .show-more-btn {
+            border: 1px solid var(--line);
+            padding: 11px 24px;
+            border-radius: 9px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--surface);
+            color: var(--ink);
+        }
+        .show-more-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .hidden-item { display: none; }
+        .card-reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+        .card-reveal.card-visible { opacity: 1; transform: translateY(0); }
+
+        /* About */
+        .about-body { max-width: none; color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
+        .about-body a.btn { margin-top: 18px; }
+
+        /* Image popup modal */
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s ease;
+        }
+        .image-modal.active { opacity: 1; pointer-events: auto; }
+        .image-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(40,30,22,0.78);
+        }
+        .image-modal-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            max-width: 90vw;
+            max-height: 92vh;
+            overflow-y: auto;
+            padding: 6px;
+        }
+        .image-modal-content img {
+            display: block;
+            max-width: 90vw;
+            max-height: 68vh;
+            border-radius: 14px;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5);
+            background: #fff;
+            transform: translateY(48px) scale(0.92);
+            opacity: 0;
+            transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .35s ease;
+        }
+        .image-modal.active .image-modal-content img {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .image-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 16px -4px rgba(0,0,0,0.35);
+        }
+        .image-modal-main { position: relative; }
+        .image-modal-thumbs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            gap: 8px;
+            max-width: 90vw;
+        }
+        .image-modal-thumbs img {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.55;
+            border: 2px solid transparent;
+            transition: opacity .2s ease, border-color .2s ease, transform .2s ease;
+        }
+        .image-modal-thumbs img:hover { opacity: 0.85; transform: translateY(-2px); }
+        .image-modal-thumbs img.active {
+            opacity: 1;
+            border-color: var(--accent);
+        }
+        @media (max-width: 480px) {
+            .image-modal-thumbs img { width: 44px; height: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="wrap nav-inner">
+            <div class="nav-brand">
+                <img class="nav-logo" src="https://avatars.githubusercontent.com/u/18351457?v=4" alt="Samuel Septiano"/>
+                <span>Samuel Septiano</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+                <a href="#work">Work</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <a class="btn-resume-nav" href="https://github.com/samseptiano" target="_blank" rel="noopener noreferrer" style="margin-right:0;">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="social-bar wrap">
+        <a href="https://github.com/samseptiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/samseptiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://instagram.com/techarmony" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="mailto:sammuel.septiano@gmail.com?subject=Business%20Inqiries&body=Hello%20Samuel%20Septiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i> Email</a>
+        <a href="https://wa.me/6283871979960" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://rxresu.me/sammuel.septiano/ats-resume" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-lines"></i> Resume</a>
+    </div>
+
+    <main class="wrap">
+
+        <section class="hero" id="about-top">
+            <div class="hero-grid">
+                <div>
+                    <div class="eyebrow">Software Engineer</div>
+                    <h1><span id="typing-text" data-text="Software Engineering - Project Management"></span><span class="typing-cursor">&nbsp;</span></h1>
+                    <p class="lead">Graduated from Computer Science, I've spent time since 2017 building Web and Mobile products across Financial Technology, HRIS, POS, Logistics, Sales and Healthcare &mdash; at both startups and enterprise-level companies &mdash; using Kotlin, Java, Flutter, .NET/.NET Core and PHP.</p>
+                    <div class="hero-ctas">
+                        <a class="btn btn-primary" href="#work">Explore Projects <i class="fa fa-arrow-right"></i></a>
+                        <a class="btn btn-outline" href="https://wa.me/6283871979960" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i> Contact Me
+                        </a>
+                    </div>
+                    <div class="hero-note"><i class="fa-regular fa-calendar"></i> 9+ years building mobile &amp; web products</div>
+                    <div class="hero-tags">
+                        <span>Kotlin (Android)</span>
+                        <span>Java (Android)</span>
+                        <span>Flutter</span>
+                        <span>.NET / .NET Core</span>
+                        <span>PHP</span>
+                        <span>SQL Server</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="mock-phone">
+                        <div class="mock-phone-screen">
+                            <div class="mock-phone-status"><span id="phone-clock">9:41</span><span><i class="fa fa-wifi"></i> <i class="fa fa-battery-full"></i></span></div>
+                            <h4 id="phone-greeting">Good morning, Samuel</h4>
+                            <p>Ship reliable products.</p>
+                            <div class="mock-phone-row"><i class="fa fa-landmark"></i><div><b>Banking</b><span>BCA E-Branch</span></div></div>
+                            <div class="mock-phone-row"><i class="fa fa-hospital"></i><div><b>Healthcare</b><span>Klikdokter</span></div></div>
+                            <div class="mock-phone-row"><i class="fa fa-sack-dollar"></i><div><b>Fintech</b><span>Koinworks</span></div></div>
+                            <div class="mock-phone-row"><i class="fa fa-cart-shopping"></i><div><b>E-Commerce</b><span>Sama-Sama &amp; Obalihara</span></div></div>
+                            <div class="mock-phone-row"><i class="fa fa-users"></i><div><b>HRIS</b><span>Enseval Putera Megatrading</span></div></div>
+                            <div class="mock-phone-tabs">
+                                <span><i class="fa fa-house"></i><br/>Home</span>
+                                <span><i class="fa fa-compass"></i><br/>Discover</span>
+                                <span><i class="fa fa-user"></i><br/>Profile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visual-stack">
+                        <div class="mock-card mock-stat">
+                            <div class="label">Software engineering experience</div>
+                            <div class="value">9+ years <small><i class="fa fa-arrow-up"></i> since 2017</small></div>
+                        </div>
+
+                        <div class="mock-code" id="mock-code">
+                            <div><span class="kw">class</span> <span class="fn">MainActivity</span> :</div>
+                            <div>&nbsp;&nbsp;AppCompatActivity() {</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">override fun</span> onCreate(</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;savedInstanceState: Bundle?</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;) {</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">super</span>.onCreate(...)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setContentView(R.layout...)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                            <div>&nbsp;&nbsp;}</div>
+                        </div>
+
+                        <div class="mock-card mock-tech">
+                            <ul>
+                                <li><i class="fa-brands fa-android icon-green"></i> Kotlin / Java (Android)</li>
+                                <li><img class="tech-logo" src="img/flutter-logo.svg" alt="Flutter"/> Flutter</li>
+                                <li><i class="fa-brands fa-microsoft icon-blue"></i> .NET / .NET Core</li>
+                                <li><i class="fa-brands fa-php icon-red"></i> PHP &amp; SQL Server</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="section-head">
+                <h2>Featured work</h2>
+                <a class="view-all" href="#projects">View all projects <i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-thumb"><img src="img/portfolio/cms-tms-1.png" alt="Tire Management System Pt.cms"/></div>
+                    <div class="work-body">
+                        <h3>Tire Management System &mdash; PT. CMS</h3>
+                        <div class="role">PT. Citra Maju Sentosa</div>
+                        <div class="work-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                        <p>Tracks the life cycle of a tire from first retread until it can no longer be retreaded, including vehicle install/removal records, daily checks, pool-based reporting and mileage tracking.</p>
+                        <a class="work-link" href="https://tms.citramajusentosa.co.id/" target="_blank" rel="noopener noreferrer">View case study <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-thumb"><img src="img/portfolio/ssa-app-1.jpg" alt="Ecommerce Sama Sama App"/></div>
+                    <div class="work-body">
+                        <h3>Sama-Sama &mdash; C2C Pre-Loved Fashion Marketplace</h3>
+                        <div class="role">Sama-Sama App</div>
+                        <div class="work-tags"><span>Spring Boot</span><span>Kotlin</span><span>Android</span><span>GCP</span></div>
+                        <p>Fullstack web and mobile marketplace for pre-loved fashion, built with Spring Boot APIs from scratch and an Android client with MVVM and Jetpack.</p>
+                        <a class="work-link" href="#project-ssa">View case study <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-thumb"><img src="img/portfolio/ebca-app-1.png" alt="Ebranch Bca App"/></div>
+                    <div class="work-body">
+                        <h3>BCA E-Branch &mdash; Digital Banking</h3>
+                        <div class="role">Bank Central Asia</div>
+                        <div class="work-tags"><span>Android</span><span>Kotlin</span><span>MVVM</span><span>Jetpack</span></div>
+                        <p>An Android app that modernizes the in-branch experience for BCA, letting customers fill transaction forms and book branch reservations from their phone.</p>
+                        <a class="work-link" href="https://play.google.com/store/apps/details?id=com.bca.smartbranch&hl=id" target="_blank" rel="noopener noreferrer">View case study <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-head">
+                <h2>Experience</h2>
+                <a class="view-all" href="https://linkedin.com/in/samseptiano" target="_blank" rel="noopener noreferrer">View full experience <i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2025 &mdash; Apr 2025</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/rdm-logo.jpeg" alt="Rodamas Group"/>
+                            <div>
+                                <h3>Rodamas Group</h3>
+                                <div class="role">Android &amp; Web App Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Laravel</span><span>PHP</span><span>SQL Server</span><span>Kotlin</span><span>MVVM</span><span>Coroutines</span></div>
+                    </div>
+                    <div class="timeline-desc">Built a fullstack Android app and APIs from scratch used by receptionists and security to track employees' documents and packages, with email notifications on package arrival.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2024 &mdash; Dec 2024</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/ssa-logo.png" alt="Sama-Sama App"/>
+                            <div>
+                                <h3>Sama-Sama App</h3>
+                                <div class="role">Web and App Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>PostgreSQL</span><span>GCP</span><span>Spring Boot</span><span>Android</span><span>Kotlin</span><span>Jetpack</span></div>
+                    </div>
+                    <div class="timeline-desc">Collaborated with teams to build a fullstack web and mobile app using Spring Boot for backend APIs, powering a community marketplace for pre-loved fashion and lifestyle items.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2022 &mdash; Apr 2023</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/ebca-logo.png" alt="Bank Central Asia"/>
+                            <div>
+                                <h3>Bank Central Asia (Branch)</h3>
+                                <div class="role">Android App Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span><span>Jetpack</span></div>
+                    </div>
+                    <div class="timeline-desc">Collaborated with teams from various backgrounds to develop the BCA E-Branch Android app, streamlining in-branch banking processes and reducing physical wait time.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-4">
+                    <div class="timeline-date">Jun 2022 &mdash; Mar 2023</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/kd-logo.png" alt="Klikdokter"/>
+                            <div>
+                                <h3>PT. Medika Komunika Teknologi (Klikdokter)</h3>
+                                <div class="role">Android Application Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span><span>Jetpack</span></div>
+                    </div>
+                    <div class="timeline-desc">Full-time Android Engineer building the Klikdokter app, a comprehensive health platform bridging patients and medical professionals for preventive, curative and educational care.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-5">
+                    <div class="timeline-date">Aug 2022</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/cms-logo.jpg" alt="PT. Citra Maju Sentosa"/>
+                            <div>
+                                <h3>PT. Citra Maju Sentosa</h3>
+                                <div class="role">Web Development &mdash; Warehouse Management</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                    </div>
+                    <div class="timeline-desc">Built a Warehouse Management System for tire retreading production and inventory, from tires entering the warehouse through production planning to customer delivery.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-6">
+                    <div class="timeline-date">Oct 2021 &mdash; Jun 2022</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/kw-logo.png" alt="Koinworks"/>
+                            <div>
+                                <h3>PT. Lunaria Annua Teknologi (Koinworks)</h3>
+                                <div class="role">Android Application Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span><span>Jetpack</span></div>
+                    </div>
+                    <div class="timeline-desc">Full-time Android Engineer building the KoinWorks app, a leading Indonesian fintech super app offering investments, loans and digital banking in a single platform.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-7">
+                    <div class="timeline-date">Jun 2021 &mdash; Aug 2021</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/obh-logo.png" alt="Obalihara"/>
+                            <div>
+                                <h3>Obalihara</h3>
+                                <div class="role">Web Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                    </div>
+                    <div class="timeline-desc">Collaborated with teams to design, build and refactor Obalihara.com, an online marketplace promoting environmentally friendly local products directly from producers to consumers.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-8">
+                    <div class="timeline-date">Oct 2020 &mdash; Oct 2021</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/ottopay-logo.png" alt="Ottodigital"/>
+                            <div>
+                                <h3>Ottodigital (Salim Group)</h3>
+                                <div class="role">Android App Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Android</span><span>Java</span><span>MVP</span><span>RxJava</span><span>RoomDB</span></div>
+                    </div>
+                    <div class="timeline-desc">Full-time Android Engineer building Ottodigital Group's mobile apps: OttoPay digital payments for MSMEs, OttoKasir transaction &amp; stock tools, and the Indomarco app.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-9">
+                    <div class="timeline-date">Aug 2020</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/cms-logo.jpg" alt="PT. Citra Maju Sentosa"/>
+                            <div>
+                                <h3>PT. Citra Maju Sentosa</h3>
+                                <div class="role">Web Development &mdash; Tire Management</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                    </div>
+                    <div class="timeline-desc">Built a Tire Management System tracking a tire's life cycle from first retread to end-of-life, plus reports for tire mileage, pool allocation and vehicle installation.</div>
+                </div>
+                <div class="timeline-item hidden-item" id="experience-10">
+                    <div class="timeline-date">Dec 2018 &mdash; Oct 2020</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-main">
+                        <div class="timeline-company">
+                            <img class="timeline-logo" src="img/portfolio/epm-logo.png" alt="PT. Enseval Putera Megatrading Tbk."/>
+                            <div>
+                                <h3>PT. Enseval Putera Megatrading Tbk.</h3>
+                                <div class="role">Web and App Development</div>
+                            </div>
+                        </div>
+                        <div class="timeline-tags"><span>Android</span><span>Kotlin</span><span>.NET</span><span>C#</span><span>JWT</span><span>SQL Server</span></div>
+                    </div>
+                    <div class="timeline-desc">Full-time HRIS Fullstack Engineer building the training and HC Roadmap Android and web apps from scratch, used by HRD for certificates, appraisal, transfer and promotion workflows.</div>
+                </div>
+            </div>
+            <div class="show-more-wrap">
+                <button class="show-more-btn" id="experience-show-more">Load more experience</button>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-head">
+                <h2>All Projects</h2>
+                <span class="view-all">10 projects</span>
+            </div>
+            <div class="full-grid" id="projects-grid">
+
+                <div class="work-card" id="project-rdm">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/rdm-dpt-3.png')" data-gallery="img/portfolio/rdm-dpt-1.png|img/portfolio/rdm-dpt-2.png|img/portfolio/rdm-dpt-3.png|img/portfolio/rdm-dpt-4.png|img/portfolio/rdm-dpt-5.png"><img src="img/portfolio/rdm-dpt-3.png" alt="Document Package Tracking Rodamas"/></div>
+                    <div class="work-body">
+                        <h3>RDM Group</h3>
+                        <div class="meta">Android and Web App Development &middot; January 2025 - April 2025</div>
+                        <div class="project-tags"><span>Laravel</span><span>PHP</span><span>SQL Server</span><span>Kotlin</span></div>
+                        <p>Fulltime software engineer building a fullstack Android app and APIs from scratch, used by receptionists and security to track employees' documents and packages, with email notifications on package arrival.</p>
+                    </div>
+                </div>
+
+                <div class="work-card" id="project-ssa">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/ssa-app-1.jpg')" data-gallery="img/portfolio/ssa-app-1.jpg"><img src="img/portfolio/ssa-app-1.jpg" alt="Ecommerce Sama Sama App"/></div>
+                    <div class="work-body">
+                        <h3>Sama-Sama &mdash; Pre-Loved Fashion Marketplace</h3>
+                        <div class="meta">Web and App Development &middot; September 2024 - December 2024</div>
+                        <div class="project-tags"><span>PostgreSQL</span><span>GCP</span><span>Spring Boot</span><span>Android</span></div>
+                        <p>Collaborated with teams to build a fullstack web and mobile app using Spring Boot for backend APIs. A community-driven marketplace for pre-loved fashion, accessories and lifestyle items.</p>
+                    </div>
+                </div>
+
+                <div class="work-card" id="project-ebca">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/ebca-app-1.png')" data-gallery="img/portfolio/ebca-app-1.png"><img src="img/portfolio/ebca-app-1.png" alt="Ebranch Bca App"/></div>
+                    <div class="work-body">
+                        <h3>BCA E-Branch</h3>
+                        <div class="meta">Android App Development &middot; September 2022 - April 2023</div>
+                        <div class="project-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span></div>
+                        <p>Collaborated with teams from various backgrounds to develop the BCA E-Branch digital banking Android app, letting customers fill transaction forms and book branch reservations.</p>
+                        <a class="work-link" href="https://play.google.com/store/apps/details?id=com.bca.smartbranch&hl=id" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card" id="project-kd">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/kd-app-1.jpg')" data-gallery="img/portfolio/kd-app-1.jpg"><img src="img/portfolio/kd-app-1.jpg" alt="Klikdokter Android App"/></div>
+                    <div class="work-body">
+                        <h3>Klikdokter Android App</h3>
+                        <div class="meta">Android Application Development &middot; June 2022 - March 2023</div>
+                        <div class="project-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span></div>
+                        <p>Full-time Android Engineer building the Klikdokter app, a comprehensive health platform empowering users in Indonesia to manage healthcare anytime, anywhere.</p>
+                        <a class="work-link" href="https://play.google.com/store/apps/details?id=id.codigo.klikdokter&hl=id" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card" id="project-cms-wms">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/cms-wms-1.png')" data-gallery="img/portfolio/cms-wms-1.png|img/portfolio/cms-wms-2.png|img/portfolio/cms-wms-3.png|img/portfolio/cms-wms-4.png"><img src="img/portfolio/cms-wms-1.png" alt="Warehouse Management System Pt.cms"/></div>
+                    <div class="work-body">
+                        <h3>Warehouse Management System &mdash; PT. CMS</h3>
+                        <div class="meta">Web Development &middot; August 2022</div>
+                        <div class="project-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                        <p>Built a warehouse management system for PT. Citra Maju Sentosa handling tire retreading production and inventory, from warehouse entry through to customer delivery, plus invoices and reports.</p>
+                        <a class="work-link" href="https://admin.citramajusentosa.co.id/" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card" id="project-koinworks">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/kw-app-1.png')" data-gallery="img/portfolio/kw-app-1.png"><img src="img/portfolio/kw-app-1.png" alt="Koinworks Android App"/></div>
+                    <div class="work-body">
+                        <h3>Koinworks Android App</h3>
+                        <div class="meta">Android Application Development &middot; October 2021 - June 2022</div>
+                        <div class="project-tags"><span>Android</span><span>Kotlin</span><span>Java</span><span>MVVM</span></div>
+                        <p>Full-time Android Engineer building the KoinWorks app, a leading Indonesian fintech super app with services like KoinP2P, KoinRobo, KoinNeo and KoinGold.</p>
+                        <a class="work-link" href="https://play.google.com/store/apps/details?id=com.koinworks.app&hl=en" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card hidden-item" id="project-obalihara">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/obh-app-1.jpg')" data-gallery="img/portfolio/obh-app-1.jpg"><img src="img/portfolio/obh-app-1.jpg" alt="Ecommerce App Obalihara"/></div>
+                    <div class="work-body">
+                        <h3>Obalihara</h3>
+                        <div class="meta">Web Development &middot; June 2021 - August 2021</div>
+                        <div class="project-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                        <p>Collaborated with teams to design, build and refactor Obalihara.com, an online marketplace for environmentally friendly local products, initiated by WALHI, connecting producers directly to consumers.</p>
+                        <a class="work-link" href="https://www.obalihara.com" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card hidden-item" id="project-ottodigital">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/ottopay-app-1.png')" data-gallery="img/portfolio/ottopay-app-1.png|img/portfolio/ottopay-app-2.png|img/portfolio/ottopay-app-3.png"><img src="img/portfolio/ottopay-app-1.png" alt="Ottodigital Group"/></div>
+                    <div class="work-body">
+                        <h3>Ottodigital Group</h3>
+                        <div class="meta">Android App Development &middot; October 2020 - October 2021</div>
+                        <div class="project-tags"><span>Android</span><span>Java</span><span>MVP</span><span>RxJava</span></div>
+                        <p>Full-time Android Engineer building Ottodigital Group's mobile apps: OttoPay (digital payments for MSMEs and businesses), OttoKasir (transaction &amp; stock tools) and the Indomarco app.</p>
+                        <a class="work-link" href="https://play.google.com/store/apps/details?id=id.ottopay.ottopay&hl=en" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card hidden-item" id="project-cms-tms">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/cms-tms-1.png')" data-gallery="img/portfolio/cms-tms-1.png|img/portfolio/cms-tms-2.png|img/portfolio/cms-tms-3.png|img/portfolio/cms-tms-4.png|img/portfolio/cms-tms-5.png"><img src="img/portfolio/cms-tms-1.png" alt="Tire Management System Pt.cms"/></div>
+                    <div class="work-body">
+                        <h3>Tire Management System &mdash; PT. CMS</h3>
+                        <div class="meta">Web Development &middot; August 2020</div>
+                        <div class="project-tags"><span>PHP</span><span>Codeigniter</span><span>MVC</span><span>MySQL</span></div>
+                        <p>Tracks the life cycle of a tire from first retread until it can no longer be retreaded, including vehicle install/removal records, daily checks, pool-based reporting and mileage tracking.</p>
+                        <a class="work-link" href="https://tms.citramajusentosa.co.id" target="_blank" rel="noopener noreferrer">Visit page <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="work-card hidden-item" id="project-enseval">
+                    <div class="work-thumb" style="--thumb-bg:url('img/portfolio/epm-app-1.jpg')" data-gallery="img/portfolio/epm-app-1.jpg"><img src="img/portfolio/epm-app-1.jpg" alt="Hc Roadmap Pt.enseval Putera Megatrading Tbk."/></div>
+                    <div class="work-body">
+                        <h3>HC Roadmap &mdash; PT. Enseval Putera Megatrading Tbk.</h3>
+                        <div class="meta">Web and App Development &middot; December 2018 - October 2020</div>
+                        <div class="project-tags"><span>Android</span><span>Kotlin</span><span>.NET</span><span>C#</span></div>
+                        <p>Fulltime HRIS Fullstack Software Engineer building HRIS Android and Web applications (training and HC Roadmap) used by HRD for certificates, employee appraisal, transfer and promotion workflows.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="show-more-wrap">
+                <button class="show-more-btn" id="projects-show-more">Show more projects</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-head">
+                <h2>About</h2>
+            </div>
+            <div class="about-body">
+                <p>Experienced software engineer since 2016, with a strong background in mobile and web technologies. Extensive experience leading development teams and managing projects across various technology stacks, including .NET, Kotlin, Java, Flutter, and SQL Server. Proven track record of developing enterprise-level applications, integrating third-party APIs, and delivering high-quality solutions. Experience across industries including finance, healthcare, HRIS, and sales, with expertise in Android development, system architecture, and database management.</p>
+                <p>If you'd like to learn more or discuss a business inquiry, don't hesitate to contact me. :)</p>
+                <div class="hero-ctas">
+                    <a href="https://wa.me/6283871979960" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fa fa-message"></i> Contact Me
+                    </a>
+                    <a href="mailto:sammuel.septiano@gmail.com?subject=Business%20Inqiries&body=Hello%20Samuel%20Septiano" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-google"></i> Email Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div>
+                <div>&copy; <span id="footer-year">2026</span> Samuel Septiano. All rights reserved.</div>
+                <div>Bekasi, West Java, Indonesia 17116</div>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/samseptiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/samseptiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://instagram.com/techarmony" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:sammuel.septiano@gmail.com?subject=Business%20Inqiries&body=Hello%20Samuel%20Septiano" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="image-modal" id="image-modal">
+        <div class="image-modal-backdrop"></div>
+        <div class="image-modal-content">
+            <div class="image-modal-main">
+                <button class="image-modal-close" id="image-modal-close" aria-label="Close">&times;</button>
+                <img id="image-modal-img" src="" alt="">
+            </div>
+            <div class="image-modal-thumbs" id="image-modal-thumbs"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+
+        const navEl = document.querySelector('.nav');
+        const NAV_FADE_DISTANCE = 200;
+        function updateNavOpacity() {
+            const progress = Math.min(window.scrollY / NAV_FADE_DISTANCE, 1);
+            const opacity = 1 - progress * 0.5;
+            navEl.style.setProperty('--nav-bg-opacity', opacity);
+        }
+        window.addEventListener('scroll', updateNavOpacity, { passive: true });
+        updateNavOpacity();
+
+        const typingTextEl = document.getElementById('typing-text');
+        const heroTypingText = typingTextEl.getAttribute('data-text') || '';
+        let typingIndex = 0;
+        let typingDeleting = false;
+        function typeHeroText() {
+            if (!typingDeleting) {
+                typingTextEl.textContent = heroTypingText.slice(0, typingIndex);
+                if (typingIndex < heroTypingText.length) {
+                    typingIndex++;
+                    setTimeout(typeHeroText, 45);
+                } else {
+                    typingDeleting = true;
+                    setTimeout(typeHeroText, 2200);
+                }
+            } else {
+                typingTextEl.textContent = heroTypingText.slice(0, typingIndex);
+                if (typingIndex > 0) {
+                    typingIndex--;
+                    setTimeout(typeHeroText, 22);
+                } else {
+                    typingDeleting = false;
+                    setTimeout(typeHeroText, 500);
+                }
+            }
+        }
+        typeHeroText();
+
+        const hour = new Date().getHours();
+        let greeting;
+        if (hour >= 5 && hour < 12) greeting = 'Good morning';
+        else if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
+        else if (hour >= 18 && hour < 22) greeting = 'Good evening';
+        else greeting = 'Good night';
+        document.getElementById('phone-greeting').textContent = `${greeting}, Samuel`;
+
+        function updatePhoneClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('phone-clock').textContent = `${h}:${m}`;
+        }
+        updatePhoneClock();
+        setInterval(updatePhoneClock, 1000);
+
+        function cycleRows(selector) {
+            const rows = document.querySelectorAll(selector);
+            let step = 0;
+            setInterval(() => {
+                if (step < rows.length) {
+                    rows[step].classList.add('row-visible');
+                    step++;
+                } else {
+                    rows.forEach(row => row.classList.remove('row-visible'));
+                    step = 0;
+                }
+            }, 1000);
+        }
+        cycleRows('.mock-phone-row');
+        cycleRows('.mock-tech li');
+
+        function typeCodeBlock(selector, { lineTypeDuration = 1500, lineDelay = 120, loopDelay = 2000 } = {}) {
+            const container = document.querySelector(selector);
+            const originalLines = Array.from(container.children).map(line => line.cloneNode(true));
+            container.style.height = `${container.getBoundingClientRect().height}px`;
+            const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+            function buildTokens(lineEl) {
+                const tokens = [];
+                lineEl.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        for (const ch of node.textContent) tokens.push({ ch, cls: null });
+                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                        const cls = node.className;
+                        for (const ch of node.textContent) tokens.push({ ch, cls });
+                    }
+                });
+                return tokens;
+            }
+
+            async function typeOnce() {
+                container.innerHTML = '';
+                const cursor = document.createElement('span');
+                cursor.className = 'code-cursor';
+                cursor.textContent = '▋';
+
+                for (const originalLine of originalLines) {
+                    const lineDiv = document.createElement('div');
+                    container.appendChild(lineDiv);
+                    lineDiv.appendChild(cursor);
+
+                    const tokens = buildTokens(originalLine);
+                    const charDelay = Math.max(15, lineTypeDuration / Math.max(tokens.length, 1));
+                    let currentNode = null;
+                    let currentCls;
+                    for (const { ch, cls } of tokens) {
+                        if (cls !== currentCls || !currentNode) {
+                            currentNode = cls ? document.createElement('span') : document.createTextNode('');
+                            if (cls) currentNode.className = cls;
+                            lineDiv.insertBefore(currentNode, cursor);
+                            currentCls = cls;
+                        }
+                        currentNode.textContent += ch;
+                        await sleep(charDelay);
+                    }
+                    await sleep(lineDelay);
+                }
+                await sleep(loopDelay);
+            }
+
+            (async function loop() {
+                while (true) {
+                    await typeOnce();
+                }
+            })();
+        }
+        typeCodeBlock('#mock-code');
+
+        function wireShowMore(buttonId, hiddenSelector) {
+            const btn = document.getElementById(buttonId);
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                const hiddenItems = Array.from(document.querySelectorAll(hiddenSelector));
+                hiddenItems.forEach((el, i) => {
+                    el.classList.remove('hidden-item');
+                    el.classList.add('card-reveal');
+                    setTimeout(() => el.classList.add('card-visible'), i * 150);
+                });
+                btn.remove();
+            });
+        }
+        wireShowMore('projects-show-more', '#projects-grid .hidden-item');
+        wireShowMore('experience-show-more', '.timeline .hidden-item');
+
+        const imageModal = document.getElementById('image-modal');
+        const imageModalImg = document.getElementById('image-modal-img');
+        const imageModalThumbs = document.getElementById('image-modal-thumbs');
+        let currentGallery = [];
+
+        function renderThumbs(activeIndex, alt) {
+            imageModalThumbs.innerHTML = '';
+            if (currentGallery.length < 2) return;
+            currentGallery.forEach((src, i) => {
+                const thumb = document.createElement('img');
+                thumb.src = src;
+                thumb.alt = `${alt || ''} thumbnail ${i + 1}`;
+                if (i === activeIndex) thumb.classList.add('active');
+                thumb.addEventListener('click', () => selectGalleryImage(i, alt));
+                imageModalThumbs.appendChild(thumb);
+            });
+        }
+
+        function selectGalleryImage(index, alt) {
+            imageModalImg.src = currentGallery[index];
+            imageModalImg.alt = alt || '';
+            Array.from(imageModalThumbs.children).forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+        }
+
+        function openImageModal(gallery, startSrc, alt) {
+            currentGallery = gallery && gallery.length ? gallery : [startSrc];
+            const startIndex = Math.max(currentGallery.indexOf(startSrc), 0);
+            imageModalImg.src = currentGallery[startIndex];
+            imageModalImg.alt = alt || '';
+            renderThumbs(startIndex, alt);
+            imageModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('#projects-grid .work-thumb img');
+            if (!target) return;
+            const thumbEl = target.closest('.work-thumb');
+            const galleryAttr = thumbEl ? thumbEl.getAttribute('data-gallery') : '';
+            const gallery = galleryAttr ? galleryAttr.split('|') : [target.getAttribute('src')];
+            openImageModal(gallery, target.getAttribute('src'), target.alt);
+        });
+
+        document.getElementById('image-modal-close').addEventListener('click', closeImageModal);
+        document.querySelector('.image-modal-backdrop').addEventListener('click', closeImageModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeImageModal();
+        });
+    </script>
+</body>
+</html>
